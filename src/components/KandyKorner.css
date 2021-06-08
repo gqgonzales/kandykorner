@@ -7,7 +7,7 @@
 
 .main__header {
   background-color: pink;
-  color: black;
+  color: purple;
   text-align: center;
   padding: 1rem;
 }
@@ -18,6 +18,7 @@
 
 .subsection__header {
   background-color: pink;
+  color: purple;
   max-width: fit-content;
   padding: 1rem;
 }

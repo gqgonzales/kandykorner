@@ -4,7 +4,7 @@ import "./ProductTypes.css";
 import { useHistory, Link } from "react-router-dom";
 import { ProductTypeContext } from "./ProductTypeProvider";
 
-export const ProductList = () => {
+export const ProductTypeList = () => {
   // This state changes when `getProductTypes()` is invoked below
   const { productTypes, getProductTypes } = useContext(
     ProductTypeContext

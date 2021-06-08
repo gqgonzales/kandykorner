@@ -8,5 +8,7 @@
   flex-basis: 28%;
   margin: 1em;
   padding: 1em;
-  border: 1px solid cornflowerblue;
+  background-color: #fff5b5;
+  color: purple;
+  border: 2px dashed pink;
 }
