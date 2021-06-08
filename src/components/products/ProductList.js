@@ -15,18 +15,6 @@ export const ProductList = () => {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
   //   The empty array bracket is the dependency array. It only runs on first render.
 
-  /*   return (
-    <>
-      <h2 className="subsection__header">Our Sweets</h2>
- 
-      <div className="products">
-        {products.map((product) => (
-          <h3>{product.name}</h3>
-        ))}
-      </div>
-    </>
-  ) */
-
   return (
     <>
       <h2 className="subsection__header">Our Sweets</h2>
@@ -40,15 +28,15 @@ export const ProductList = () => {
               className="product"
               id={`product--${product.id}`}
             >
-              <div className="product__name">
+              <div className="product__name option__name">
                 <h3>{product.name}</h3>
               </div>
               <div className="product__info">
                 <div className="product__type">
-                  Type: {product.productType.name}
+                  A tasty {product.productType.name} treat!
                 </div>
                 <div className="product__price">
-                  ${product.price} a pop
+                  ${product.price}
                 </div>
               </div>
             </div>

@@ -28,7 +28,7 @@ export const ProductTypeList = () => {
           <Link
             to={`/products/detail/${productTypes.id}`}
             key={productTypes.id}
-            className="productType"
+            className="productType option__name"
           >
             {productType.name}
           </Link>

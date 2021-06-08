@@ -18,20 +18,45 @@ export const LocationList = () => {
 
   return (
     <>
-      <h2>Locations</h2>
+      <h2 className="subsection__header">Locations</h2>
       <button onClick={() => history.push("/locations/create")}>
         Open New Location
       </button>
       <div className="locations">
-        {locations.map((location) => (
-          <Link
-            to={`/locations/detail/${location.id}`}
-            key={location.id}
-            className="location"
-          >
-            {location.name}
-          </Link>
-        ))}
+        {locations.map((location) => {
+          return (
+            <div
+              className="location"
+              id={`location--${location.id}`}
+            >
+              <div className="location__name option__name">
+                <h3>{location.name}</h3>
+              </div>
+              <div className="location__info">
+                <h4 className="location__address">
+                  {location.address}
+                </h4>
+                <div className="location__squareFootage">
+                  {location.squareFootage} square feet of
+                  delicous candy, staffed by{" "}
+                  {location.employees
+                    .map((e) => {
+                      return e.name;
+                    })
+                    .join(" + ")}
+                  .
+                </div>
+                <br></br>
+                <div className="location__accessibility">
+                  Our {location.name} store
+                  {location.handicapAccessible
+                    ? " is wheelchair accessible."
+                    : " is NOT wheelchair accessible."}
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </>
   );
