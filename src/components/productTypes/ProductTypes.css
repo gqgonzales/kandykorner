@@ -1,10 +1,10 @@
-.products {
+.productTypes {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.product {
+.productType {
   flex-basis: 28%;
   margin: 1em;
   padding: 1em;

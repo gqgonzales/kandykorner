@@ -1,6 +1,23 @@
-.header__namecard,
+/* .header__namecard,
 .header__subtext {
   background-color: pink;
   color: black;
   text-align: center;
+} */
+
+.main__header {
+  background-color: pink;
+  color: black;
+  text-align: center;
+  padding: 1rem;
+}
+
+.header__subtext {
+  font-style: italic;
+}
+
+.subsection__header {
+  background-color: pink;
+  max-width: fit-content;
+  padding: 1rem;
 }

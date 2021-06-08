@@ -4,10 +4,12 @@ import "./KandyKorner.css";
 
 export const KandyKorner = () => (
   <>
-    <h1 className="header__namecard">KandyKorner</h1>
-    <h2 className="header__subtext">
-      The sweetest treats in town!
-    </h2>
+    <header className="main__header">
+      <h1 className="header__namecard">KandyKorner</h1>
+      <h3 className="header__subtext">
+        The sweetest treats in town!
+      </h3>
+    </header>
     <ApplicationViews />
   </>
 );
