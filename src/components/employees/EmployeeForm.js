@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
-import { LocationContext } from "../location/LocationProvider";
-import { EmployeeContext } from "../employee/EmployeeProvider";
+
 import "./Employee.css";
 import { useHistory, useParams } from "react-router-dom";
+import { EmployeeContext } from "./EmployeeProvider";
+import { LocationContext } from "../locations/LocationProvider";
 
 export const EmployeeForm = () => {
   const {
@@ -15,7 +16,15 @@ export const EmployeeForm = () => {
     useContext(LocationContext);
 
   //for edit, hold on to state of employee in this view
-  const [employee, setEmployee] = useState({});
+  // The input fields need to be CONTROLLED and thus need to be definied form the outset.
+  const [employee, setEmployee] = useState({
+    name: "",
+    email: "",
+    locationId: 0,
+    isManager: false,
+    isFullTime: false,
+    hourlyRate: 0,
+  });
   //wait for data before button is active
   const [isLoading, setIsLoading] = useState(true);
 
@@ -49,15 +58,44 @@ export const EmployeeForm = () => {
           id: employee.id,
           name: employee.name,
           locationId: parseInt(employee.locationId),
+          email: employee.email,
+          isManager: employee.isManager,
+          isFullTime: employee.isFullTime,
+          hourlyRate: parseFloat(employee.hourlyRate),
         }).then(() =>
           history.push(`/employees/detail/${employee.id}`)
         );
       } else {
         //POST - add
-        addEmployee({
+        if (employee.isManager === "true") {
+          employee.isManager = true;
+        } else if (employee.isManager === "false") {
+          employee.isManager = false;
+        }
+
+        if (employee.isFullTime === "true") {
+          employee.isFullTime = true;
+        } else if (employee.isFullTime === "false") {
+          employee.isFullTime = false;
+        }
+
+        const newEmployeeObject = {
           name: employee.name,
           locationId: parseInt(employee.locationId),
-        }).then(() => history.push("/employees"));
+          email: employee.email,
+          isManager: employee.isManager,
+          isFullTime: employee.isFullTime,
+          hourlyRate: parseFloat(employee.hourlyRate),
+        };
+        addEmployee(
+          newEmployeeObject
+          // name: employee.name,
+          // locationId: parseInt(employee.locationId),
+          // email: employee.email,
+          // isManager: employee.isManager,
+          // isFullTime: employee.isFullTime,
+          // hourlyRate: parseFloat(employee.hourlyRate),
+        ).then(() => history.push("/employees"));
       }
     }
   };
@@ -83,7 +121,9 @@ export const EmployeeForm = () => {
 
   return (
     <form className="employeeForm">
-      <h2 className="employeeForm__title">New employee</h2>
+      <h2 className="employeeForm__title subsection__header">
+        New employee
+      </h2>
       <fieldset>
         <div className="form-group">
           <label htmlFor="employeeName">Name: </label>
@@ -91,12 +131,12 @@ export const EmployeeForm = () => {
             type="text"
             id="employeeName"
             name="name"
+            value={employee.name}
             required
             autoFocus
             className="form-control"
             placeholder="Employee Name"
             onChange={handleControlledInputChange}
-            defaultValue={employee.name}
           />
         </div>
       </fieldset>
@@ -119,6 +159,76 @@ export const EmployeeForm = () => {
           </select>
         </div>
       </fieldset>
+      <fieldset>
+        <div className="form-group">
+          <label htmlFor="employeeEmail">Email: </label>
+          <input
+            type="text"
+            id="employeeEmail"
+            name="email"
+            value={employee.email}
+            required
+            autoFocus
+            className="form-control"
+            placeholder="E-Mail Address"
+            onChange={handleControlledInputChange}
+          />
+        </div>
+      </fieldset>
+      {/* isManager */}
+      <fieldset>
+        <div className="form-group">
+          <label htmlFor="employeeLevel">Level: </label>
+          <select
+            id="employeeLevel"
+            name="isManager"
+            className="form-control"
+            placeholder="Store role"
+            onChange={handleControlledInputChange}
+            value={employee.isManager}
+          >
+            <option value="false">Associate</option>
+            <option value="true">Lead</option>
+          </select>
+        </div>
+      </fieldset>
+      {/* isFullTime */}
+      <fieldset>
+        <div className="form-group">
+          <label htmlFor="employeeInvolvement">
+            Involvement:{" "}
+          </label>
+          <select
+            id="employeeInvolvement"
+            name="isFullTime"
+            value={employee.isFullTime}
+            className="form-control"
+            placeholder="Full or part time?"
+            onChange={handleControlledInputChange}
+          >
+            <option value="false">Part Time</option>
+            <option value="true">Full Time</option>
+          </select>
+        </div>
+      </fieldset>
+      {/* ONE MORE */}
+      <fieldset>
+        <div className="form-group">
+          <label htmlFor="employeeHourlyRate">
+            Hourly Rate:{" "}
+          </label>
+          <input
+            type="float"
+            id="employeeHourlyRate"
+            name="hourlyRate"
+            value={employee.hourlyRate}
+            required
+            className="form-control"
+            placeholder="Starting Pay"
+            onChange={handleControlledInputChange}
+          />
+        </div>
+      </fieldset>
       <button
         className="btn btn-primary"
         disabled={isLoading}
@@ -127,7 +237,7 @@ export const EmployeeForm = () => {
           handleSaveEmployee();
         }}
       >
-        {employeeId ? <>Save employee</> : <>Add employee</>}
+        {employeeId ? <>Save those changes!</> : <>Hire 'em!</>}
       </button>
     </form>
   );

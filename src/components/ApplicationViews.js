@@ -2,7 +2,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 import { EmployeeList } from "./employees/EmployeeList";
 import { EmployeeProvider } from "./employees/EmployeeProvider";
-// import { EmployeeForm } from "./employees/EmployeeForm";
+import { EmployeeForm } from "./employees/EmployeeForm";
 import { LocationList } from "./locations/LocationList";
 import { LocationProvider } from "./locations/LocationProvider";
 import { ProductList } from "./products/ProductList";
@@ -41,11 +41,11 @@ export const ApplicationViews = () => {
 
               {/* <Route path="/employees/edit/:employeeId(\d+)">
                 <EmployeeForm />
-              </Route>
+              </Route> */}
 
               <Route exact path="/employees/create">
                 <EmployeeForm />
-              </Route> */}
+              </Route>
 
               {/* CUSTOMERS */}
             </EmployeeProvider>
