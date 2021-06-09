@@ -32,6 +32,10 @@
   color: purple;
 }
 
+input {
+  background-color: pink;
+}
+
 .cancel__button {
   background-color: #eb947c;
   color: white;
