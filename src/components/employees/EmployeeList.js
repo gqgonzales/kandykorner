@@ -38,11 +38,12 @@ export const EmployeeList = () => {
               </div>
               <div className="employee__info">
                 <div className="employee__location">
-                  Serving smiles at our {employee.locations.name}
+                  Serving smiles at our {employee.location.name}{" "}
                   store.
                 </div>
+                <br></br>
                 <div className="employee__email">
-                  Hellooooo {employee.email}
+                  Reach them at: {employee.email}
                 </div>
               </div>
             </div>

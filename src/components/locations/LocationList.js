@@ -38,7 +38,7 @@ export const LocationList = () => {
                 </h4>
                 <div className="location__squareFootage">
                   {location.squareFootage} square feet of
-                  delicous candy, staffed by{" "}
+                  delicious candy, staffed by{" "}
                   {location.employees
                     .map((e) => {
                       return e.name;
