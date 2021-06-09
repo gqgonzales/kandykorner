@@ -19,7 +19,7 @@ export const LocationList = () => {
   return (
     <>
       <h2 className="subsection__header">Locations</h2>
-      <button onClick={() => history.push("/locations/create")}>
+      <button className="btn" onClick={() => history.push("/locations/create")}>
         Open New Location
       </button>
       <div className="locations">

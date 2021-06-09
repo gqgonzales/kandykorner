@@ -21,4 +21,18 @@
   color: purple;
   max-width: fit-content;
   padding: 1rem;
+  font-style: italic;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  background-color: pink;
+  color: purple;
+}
+
+.cancel__button {
+  background-color: #eb947c;
+  color: white;
 }

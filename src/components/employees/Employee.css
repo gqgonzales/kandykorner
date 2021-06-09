@@ -12,3 +12,13 @@
   color: purple;
   border: 2px dashed pink;
 }
+
+.form-group {
+  text-align: center;
+  flex-basis: 28%;
+  /* margin: 1em; */
+  padding: 1em;
+  background-color: #fff5b5;
+  color: purple;
+  border: 2px dashed pink;
+}

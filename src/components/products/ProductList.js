@@ -18,7 +18,7 @@ export const ProductList = () => {
   return (
     <>
       <h2 className="subsection__header">Our Sweets</h2>
-      <button onClick={() => history.push("/products/create")}>
+      <button className="btn" onClick={() => history.push("/products/create")}>
         Dream up new product
       </button>
       <section className="products">

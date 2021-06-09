@@ -20,7 +20,7 @@ export const ProductTypeList = () => {
   return (
     <>
       <h2 className="subsection__header">Product Families</h2>
-      <button onClick={() => history.push("/products/create")}>
+      <button className="btn" onClick={() => history.push("/products/create")}>
         Create a new category
       </button>
       <div className="productTypes">

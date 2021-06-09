@@ -122,7 +122,7 @@ export const EmployeeForm = () => {
   return (
     <form className="employeeForm">
       <h2 className="employeeForm__title subsection__header">
-        New employee
+        Hire someone sweet
       </h2>
       <fieldset>
         <div className="form-group">
@@ -238,6 +238,12 @@ export const EmployeeForm = () => {
         }}
       >
         {employeeId ? <>Save those changes!</> : <>Hire 'em!</>}
+      </button>
+      <button
+        class="cancel__button"
+        onClick={() => history.push("/employees")}
+      >
+        Cancel!
       </button>
     </form>
   );

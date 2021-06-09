@@ -23,7 +23,10 @@ export const EmployeeList = () => {
   return (
     <>
       <h2 className="subsection__header">Our Team</h2>
-      <button onClick={() => history.push("/employees/create")}>
+      <button
+        className="btn"
+        onClick={() => history.push("/employees/create")}
+      >
         Hire new employee
       </button>
       <div className="employees">
