@@ -11,6 +11,7 @@ import { ProductTypeList } from "./productTypes/ProductTypeList";
 import { ProductTypeProvider } from "./productTypes/ProductTypeProvider";
 import { CustomerProvider } from "./customer/CustomerProvider";
 import { Customer } from "./customer/Customer";
+import { CustomerCandyProvider } from "./customercandy/CustomerCandyProvider";
 
 export const ApplicationViews = () => {
   return (
@@ -20,40 +21,42 @@ export const ApplicationViews = () => {
           <ProductTypeProvider>
             <EmployeeProvider>
               <CustomerProvider>
-                {/* LOCATIONS */}
-                <Route exact path="/">
-                  <LocationList />
-                </Route>
-                <Route exact path="/locations">
-                  <LocationList />
-                </Route>
-                {/* PRODUCTS */}
-                <Route exact path="/products">
-                  <ProductList />
-                </Route>
+                <CustomerCandyProvider>
+                  {/* LOCATIONS */}
+                  <Route exact path="/">
+                    <LocationList />
+                  </Route>
+                  <Route exact path="/locations">
+                    <LocationList />
+                  </Route>
+                  {/* PRODUCTS */}
+                  <Route exact path="/products">
+                    <ProductList />
+                  </Route>
 
-                {/* PRODUCT TYPES */}
-                <Route exact path="/productTypes">
-                  <ProductTypeList />
-                </Route>
+                  {/* PRODUCT TYPES */}
+                  <Route exact path="/productTypes">
+                    <ProductTypeList />
+                  </Route>
 
-                {/* EMPLOYEES */}
-                <Route exact path="/employees">
-                  <EmployeeList />
-                </Route>
+                  {/* EMPLOYEES */}
+                  <Route exact path="/employees">
+                    <EmployeeList />
+                  </Route>
 
-                {/* <Route path="/employees/edit/:employeeId(\d+)">
+                  {/* <Route path="/employees/edit/:employeeId(\d+)">
                 <EmployeeForm />
               </Route> */}
 
-                <Route exact path="/employees/create">
-                  <EmployeeForm />
-                </Route>
+                  <Route exact path="/employees/create">
+                    <EmployeeForm />
+                  </Route>
 
-                {/* CUSTOMERS */}
-                <Route exact path="/customers">
-                  <Customer />
-                </Route>
+                  {/* CUSTOMERS */}
+                  <Route exact path="/customers">
+                    <Customer />
+                  </Route>
+                </CustomerCandyProvider>
               </CustomerProvider>
             </EmployeeProvider>
           </ProductTypeProvider>

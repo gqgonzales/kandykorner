@@ -30,6 +30,7 @@
 .btn {
   background-color: pink;
   color: purple;
+  padding: 0.25rem;
 }
 
 input {

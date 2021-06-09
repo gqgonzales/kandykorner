@@ -1,12 +1,14 @@
 import React, { useContext, useEffect } from "react";
 // To start, you need to import the context object you created in the provider component so that the useContext() hook can access the objects it exposes.
 import { ProductContext } from "./ProductProvider";
+import { CustomerCandyContext } from "../customercandy/CustomerCandyProvider";
 import "./Product.css";
 import { useHistory } from "react-router-dom";
 
 export const ProductList = () => {
   // This state changes when `getproducts()` is invoked below
   const { products, getProducts } = useContext(ProductContext);
+  const { addCustomerCandy } = useContext(CustomerCandyContext);
   const history = useHistory();
 
   //useEffect - reach out to the world for something
@@ -18,7 +20,10 @@ export const ProductList = () => {
   return (
     <>
       <h2 className="subsection__header">Our Sweets</h2>
-      <button className="btn" onClick={() => history.push("/products/create")}>
+      <button
+        className="btn"
+        onClick={() => history.push("/products/create")}
+      >
         Dream up new product
       </button>
       <section className="products">
@@ -38,6 +43,13 @@ export const ProductList = () => {
                 <div className="product__price">
                   ${product.price}
                 </div>
+                <button
+                  className="btn"
+                  // CHANGE THIS onClick TO INSTEAD ADD AN OBJECT TO OUR ORDER
+                  onClick={() => addCustomerCandy()}
+                >
+                  Add to Order
+                </button>
               </div>
             </div>
           );
