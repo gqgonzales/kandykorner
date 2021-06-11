@@ -62,9 +62,7 @@ export const EmployeeForm = () => {
           isManager: employee.isManager,
           isFullTime: employee.isFullTime,
           hourlyRate: parseFloat(employee.hourlyRate),
-        }).then(() =>
-          history.push(`/employees/detail/${employee.id}`)
-        );
+        }).then(() => history.push(`/employees`));
       } else {
         //POST - add
         if (employee.isManager === "true") {

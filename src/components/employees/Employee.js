@@ -10,5 +10,6 @@ export const employee = ({ employeeObj }) => (
     <div className="employee__address">
       {employeeObj.address}
     </div>
+    
   </section>
 );

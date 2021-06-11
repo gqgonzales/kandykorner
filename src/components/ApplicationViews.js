@@ -46,6 +46,10 @@ export const ApplicationViews = () => {
                     <EmployeeList />
                   </Route>
 
+                  <Route path="/employees/edit/:employeeId(\d+)">
+                    <EmployeeForm />
+                  </Route>
+
                   {/* <Route path="/employees/edit/:employeeId(\d+)">
                 <EmployeeForm />
               </Route> */}

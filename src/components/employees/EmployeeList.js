@@ -2,11 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 // To start, you need to import the context object you created in the provider component so that the useContext() hook can access the objects it exposes.
 import { EmployeeContext } from "./EmployeeProvider";
 import "./Employee.css";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 export const EmployeeList = () => {
   // This state changes when `getemployees()` is invoked below
-  const { employees, getEmployees } =
+  const { employees, getEmployees, releaseEmployee } =
     useContext(EmployeeContext);
   const [employee, setEmployee] = useState({
     location: {},
@@ -18,7 +18,16 @@ export const EmployeeList = () => {
   useEffect(() => {
     getEmployees();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
-  //   The empty array bracket is the dependency array. It only runs on first render.
+
+  // const { employeeId } = useParams();
+
+  // useEffect(() => {
+  //   const thisEmployee = employees.find(
+  //     (e) => e.id === parseInt(employeeId)
+  //   ) || { location: {} };
+
+  //   setEmployee(thisEmployee);
+  // }, [employeeId]);
 
   return (
     <>
@@ -37,6 +46,7 @@ export const EmployeeList = () => {
             <div
               className="employee"
               id={`employee--${employee.id}`}
+              key={`employee--${employee.id}`}
             >
               <div className="employee__name option__name">
                 <h3>{employee.name}</h3>
@@ -49,6 +59,34 @@ export const EmployeeList = () => {
                 <br></br>
                 <div className="employee__email">
                   Reach them at: {employee.email}
+                </div>
+                <br></br>
+                <div className="button_group">
+                  <button
+                    className="btn"
+                    onClick={() => {
+                      history.push(
+                        `/employees/edit/${employee.id}`
+                      );
+                    }}
+                  >
+                    Edit Employee Info
+                  </button>
+                  {/* <button
+                    className="btn"
+                    onClick={() => history.push("/employees")}
+                  >
+                    Cancel!
+                  </button> */}
+                  <button
+                    className="btn delete__button"
+                    onClick={() => {
+                      releaseEmployee(employee.id);
+                      history.push("/employees");
+                    }}
+                  >
+                    Fire 'em 😔
+                  </button>
                 </div>
               </div>
             </div>
