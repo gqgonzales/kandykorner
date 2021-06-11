@@ -34,12 +34,14 @@ export const EmployeeList = () => {
       <div className="subsection__header__container">
         <h2 className="subsection__header">Our Team</h2>
       </div>
-      <button
-        className="btn"
-        onClick={() => history.push("/employees/create")}
-      >
-        Hire new employee
-      </button>
+      <div className="button__container">
+        <button
+          className="btn"
+          onClick={() => history.push("/employees/create")}
+        >
+          Hire new employee
+        </button>
+      </div>
       <div className="employees">
         {employees.map((employee) => {
           return (

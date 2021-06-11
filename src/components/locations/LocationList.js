@@ -21,12 +21,14 @@ export const LocationList = () => {
       <div className="subsection__header__container">
         <h2 className="subsection__header">Locations</h2>
       </div>
-      <button
-        className="btn"
-        onClick={() => history.push("/locations/create")}
-      >
-        Open New Location
-      </button>
+      <div className="button__container">
+        <button
+          className="btn"
+          onClick={() => history.push("/locations/create")}
+        >
+          Open New Location
+        </button>
+      </div>
       <div className="locations">
         {locations.map((location) => {
           return (

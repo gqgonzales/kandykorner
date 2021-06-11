@@ -12,6 +12,23 @@
   padding: 1rem;
 }
 
+a,
+link,
+link:visited {
+  color: purple;
+  cursor: pointer;
+}
+
+a,
+link:hover {
+  /* color: #a1edd4; */
+  cursor: pointer;
+}
+
+.header__namecard {
+  padding: 0 0.5rem 0 0.5rem;
+}
+
 .header__subtext {
   font-style: italic;
 }
@@ -28,6 +45,12 @@
   padding: 1rem;
   font-style: italic;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.button__container {
   display: flex;
   justify-content: center;
   align-content: center;

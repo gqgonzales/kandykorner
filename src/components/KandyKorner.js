@@ -18,9 +18,7 @@ export const KandyKorner = () => (
                   <Link to="/">KandyKorner</Link>
                 </h1>{" "}
                 <h3 className="header__subtext">
-                  <Link to="/">
-                    The sweetest treats in town!
-                  </Link>
+                  The sweetest treats in town!
                 </h3>{" "}
                 <NavBar />
               </header>

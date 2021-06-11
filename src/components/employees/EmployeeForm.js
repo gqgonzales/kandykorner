@@ -119,9 +119,11 @@ export const EmployeeForm = () => {
 
   return (
     <form className="employeeForm">
-      <h2 className="employeeForm__title subsection__header">
-        Hire someone sweet
-      </h2>
+      <div className="subsection__header__container">
+        <h2 className="employeeForm__title subsection__header">
+          Hire someone sweet
+        </h2>
+      </div>
       <fieldset>
         <div className="form-group">
           <label htmlFor="employeeName">Name: </label>

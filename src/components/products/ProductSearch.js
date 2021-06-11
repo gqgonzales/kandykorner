@@ -7,7 +7,6 @@ export const ProductSearch = () => {
 
   return (
     <>
-      Candy search:
       <input
         type="text"
         className="input--wide"

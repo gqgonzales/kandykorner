@@ -39,12 +39,14 @@ export const ProductList = () => {
       <div className="subsection__header__container">
         <h2 className="subsection__header">Our Sweets</h2>
       </div>
-      <button
-        className="btn"
-        onClick={() => history.push("/products/create")}
-      >
-        Dream up new product
-      </button>
+      <div className="button__container">
+        <button
+          className="btn"
+          onClick={() => history.push("/products/create")}
+        >
+          Dream up new product
+        </button>
+      </div>
       <section className="products">
         {filteredProducts.map((product) => {
           return (
@@ -63,6 +65,7 @@ export const ProductList = () => {
                 <div className="product__price">
                   ${product.price}
                 </div>
+                <br></br>
                 <button
                   className="btn"
                   onClick={(event) => {
