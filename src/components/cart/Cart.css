@@ -1,0 +1,16 @@
+.cart {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item {
+  max-width: 30%;
+  flex-basis: 28%;
+  margin: 1em;
+  padding: 1em;
+  background-color: #fff5b5;
+  color: purple;
+  border: 6px dashed pink;
+}

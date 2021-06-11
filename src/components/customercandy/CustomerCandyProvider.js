@@ -6,7 +6,7 @@ export const CustomerCandyProvider = (props) => {
 
   const getCustomerCandy = () => {
     return fetch(
-      "http://localhost:8088/customerCandy?_expand=productType"
+      "http://localhost:8088/customerCandy?_expand=product&_expand=customer"
     )
       .then((res) => res.json())
       .then((data) => setCustomerCandy(data));

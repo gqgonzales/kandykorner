@@ -45,10 +45,16 @@ export const ProductList = () => {
                 </div>
                 <button
                   className="btn"
-                  // CHANGE THIS onClick TO INSTEAD ADD AN OBJECT TO OUR ORDER
-                  onClick={() => addCustomerCandy()}
+                  onClick={(event) => {
+                    addCustomerCandy({
+                      customerId: parseInt(
+                        localStorage.getItem("kandy_customer")
+                      ),
+                      productId: product.id,
+                    });
+                  }}
                 >
-                  Add to Order
+                  Add to order
                 </button>
               </div>
             </div>

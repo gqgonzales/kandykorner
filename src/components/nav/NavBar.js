@@ -15,14 +15,19 @@ export const NavBar = (props) => {
           The Candy
         </Link>
       </li>
-      <li className="navbar__item">
+      {/* <li className="navbar__item">
         <Link className="navbar__link" to="/productTypes">
           Candy Families
         </Link>
-      </li>
+      </li> */}
       <li className="navbar__item">
         <Link className="navbar__link" to="/employees">
           Our Team
+        </Link>
+      </li>
+      <li className="navbar__item">
+        <Link className="navbar__link" to="/cart">
+          Cart
         </Link>
       </li>
       <li className="navbar__item">

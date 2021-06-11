@@ -7,11 +7,12 @@ import { LocationList } from "./locations/LocationList";
 import { LocationProvider } from "./locations/LocationProvider";
 import { ProductList } from "./products/ProductList";
 import { ProductProvider } from "./products/ProductProvider";
-import { ProductTypeList } from "./productTypes/ProductTypeList";
+// import { ProductTypeList } from "./productTypes/ProductTypeList";
 import { ProductTypeProvider } from "./productTypes/ProductTypeProvider";
 import { CustomerProvider } from "./customer/CustomerProvider";
 import { Customer } from "./customer/Customer";
 import { CustomerCandyProvider } from "./customercandy/CustomerCandyProvider";
+import { Cart } from "./cart/Cart";
 
 export const ApplicationViews = () => {
   return (
@@ -35,9 +36,9 @@ export const ApplicationViews = () => {
                   </Route>
 
                   {/* PRODUCT TYPES */}
-                  <Route exact path="/productTypes">
+                  {/* <Route exact path="/productTypes">
                     <ProductTypeList />
-                  </Route>
+                  </Route> */}
 
                   {/* EMPLOYEES */}
                   <Route exact path="/employees">
@@ -55,6 +56,11 @@ export const ApplicationViews = () => {
                   {/* CUSTOMERS */}
                   <Route exact path="/customers">
                     <Customer />
+                  </Route>
+
+                  {/* CART / ORDERS */}
+                  <Route exact path="/cart">
+                    <Cart />
                   </Route>
                 </CustomerCandyProvider>
               </CustomerProvider>
