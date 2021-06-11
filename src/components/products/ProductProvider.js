@@ -3,6 +3,7 @@ export const ProductContext = createContext();
 
 export const ProductProvider = (props) => {
   const [products, setProducts] = useState([]);
+  const [searchTerms, setSearchTerms] = useState("");
 
   const getProducts = () => {
     return fetch(
@@ -28,6 +29,8 @@ export const ProductProvider = (props) => {
         products,
         getProducts,
         addProduct,
+        searchTerms,
+        setSearchTerms,
       }}
     >
       {props.children}

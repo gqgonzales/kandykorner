@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 // To start, you need to import the context object you created in the provider component so that the useContext() hook can access the objects it exposes.
 import { ProductContext } from "./ProductProvider";
 import { CustomerCandyContext } from "../customercandy/CustomerCandyProvider";
@@ -7,8 +7,10 @@ import { useHistory } from "react-router-dom";
 
 export const ProductList = () => {
   // This state changes when `getproducts()` is invoked below
-  const { products, getProducts } = useContext(ProductContext);
+  const { products, getProducts, searchTerms } =
+    useContext(ProductContext);
   const { addCustomerCandy } = useContext(CustomerCandyContext);
+  const [filteredProducts, setFiltered] = useState([]);
   const history = useHistory();
 
   //useEffect - reach out to the world for something
@@ -16,6 +18,21 @@ export const ProductList = () => {
     getProducts();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
   //   The empty array bracket is the dependency array. It only runs on first render.
+  useEffect(() => {
+    if (searchTerms !== "") {
+      // If the search field is not blank, display matching products
+      const subset = products.filter(
+        (product) =>
+          product.name.includes(searchTerms) ||
+          product.name.toLowerCase().includes(searchTerms) ||
+          product.name.toUpperCase().includes(searchTerms)
+      );
+      setFiltered(subset);
+    } else {
+      // If the search field is blank, display all products
+      setFiltered(products);
+    }
+  }, [searchTerms, products]);
 
   return (
     <>
@@ -29,11 +46,12 @@ export const ProductList = () => {
         Dream up new product
       </button>
       <section className="products">
-        {products.map((product) => {
+        {filteredProducts.map((product) => {
           return (
             <div
               className="product"
               id={`product--${product.id}`}
+              key={`location--${product.id}`}
             >
               <div className="product__name option__name">
                 <h3>{product.name}</h3>

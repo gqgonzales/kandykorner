@@ -30,6 +30,7 @@ export const Cart = (item) => {
             <div
               className="cart__items item"
               id={`cart--${item.id}`}
+              key={`cart--${item.id}`}
             >
               <div className="item__name option__name">
                 <h3>{item.product.name}</h3>

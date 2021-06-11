@@ -33,6 +33,7 @@ export const LocationList = () => {
             <div
               className="location"
               id={`location--${location.id}`}
+              key={`location--${location.id}`}
             >
               <div className="location__name option__name">
                 <h3>{location.name}</h3>
