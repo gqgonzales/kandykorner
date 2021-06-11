@@ -22,7 +22,9 @@ export const EmployeeList = () => {
 
   return (
     <>
-      <h2 className="subsection__header">Our Team</h2>
+      <div className="subsection__header__container">
+        <h2 className="subsection__header">Our Team</h2>
+      </div>
       <button
         className="btn"
         onClick={() => history.push("/employees/create")}

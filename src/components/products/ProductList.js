@@ -19,7 +19,9 @@ export const ProductList = () => {
 
   return (
     <>
-      <h2 className="subsection__header">Our Sweets</h2>
+      <div className="subsection__header__container">
+        <h2 className="subsection__header">Our Sweets</h2>
+      </div>
       <button
         className="btn"
         onClick={() => history.push("/products/create")}

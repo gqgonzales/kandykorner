@@ -16,6 +16,11 @@
   font-style: italic;
 }
 
+.subsection__header__container {
+  display: flex;
+  justify-content: center;
+}
+
 .subsection__header {
   background-color: pink;
   color: purple;
@@ -25,6 +30,7 @@
   text-align: center;
   display: flex;
   justify-content: center;
+  align-content: center;
 }
 
 .btn {
@@ -33,11 +39,8 @@
   padding: 0.25rem;
 }
 
-input {
-  background-color: pink;
-}
-
 .cancel__button {
   background-color: #eb947c;
   color: white;
+  padding: 0.25rem;
 }

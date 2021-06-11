@@ -15,46 +15,17 @@ export const Cart = (item) => {
       parseInt(localStorage.getItem("kandy_customer"))
   );
 
-  usersCart.sort((a, b) => {
-    return a.productId - b.productId;
-  });
-
-  const productQuantities = [{ product: {} }];
-
-  usersCart.forEach((item) => {
-    const lastProduct = [...productQuantities].pop();
-    if (item.productId !== lastProduct.productId) {
-      const productObj = {
-        productId: item.productId,
-        name: item.product.name,
-        price: item.product.price,
-        quantity: 1,
-      };
-      productQuantities.push(productObj);
-    } else {
-      lastProduct.quantity += 1;
-      productQuantities.pop();
-      const productObj = {
-        productId: item.productId,
-        name: item.product.name,
-        price: item.product.price,
-        quantity: lastProduct.quantity,
-      };
-      productQuantities.push(productObj);
-    }
-  });
-
-  productQuantities.shift();
-
   useEffect(() => {
     getCustomerCandy();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>
-      <h2 className="subsection__header">Cart</h2>
+      <div className="subsection__header__container">
+        <h2 className="subsection__header">Cart</h2>
+      </div>
       <div className="cart">
-        {customerCandy.map((item) => {
+        {usersCart.map((item) => {
           return (
             <div
               className="cart__items item"

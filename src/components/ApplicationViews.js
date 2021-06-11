@@ -10,9 +10,10 @@ import { ProductProvider } from "./products/ProductProvider";
 // import { ProductTypeList } from "./productTypes/ProductTypeList";
 import { ProductTypeProvider } from "./productTypes/ProductTypeProvider";
 import { CustomerProvider } from "./customer/CustomerProvider";
-import { Customer } from "./customer/Customer";
+// import { Customer } from "./customer/Customer";
 import { CustomerCandyProvider } from "./customercandy/CustomerCandyProvider";
 import { Cart } from "./cart/Cart";
+import { CustomerList } from "./customer/CustomerList";
 
 export const ApplicationViews = () => {
   return (
@@ -55,7 +56,7 @@ export const ApplicationViews = () => {
 
                   {/* CUSTOMERS */}
                   <Route exact path="/customers">
-                    <Customer />
+                    <CustomerList />
                   </Route>
 
                   {/* CART / ORDERS */}

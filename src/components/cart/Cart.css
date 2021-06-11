@@ -1,12 +1,13 @@
 .cart {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
 }
 
 .item {
-  max-width: 30%;
+  max-width: 50%;
   flex-basis: 28%;
   margin: 1em;
   padding: 1em;

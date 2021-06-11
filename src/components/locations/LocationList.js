@@ -18,7 +18,9 @@ export const LocationList = () => {
 
   return (
     <>
-      <h2 className="subsection__header">Locations</h2>
+      <div className="subsection__header__container">
+        <h2 className="subsection__header">Locations</h2>
+      </div>
       <button
         className="btn"
         onClick={() => history.push("/locations/create")}
