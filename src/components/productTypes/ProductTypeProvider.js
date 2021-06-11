@@ -6,20 +6,23 @@ export const ProductTypeProvider = (props) => {
 
   const getProductTypes = () => {
     return fetch(
-      "http://localhost:8088/productTypes?_embed=products"
+      "https://gqg-kandykorner-api.herokuapp.com/productTypes?_embed=products"
     )
       .then((res) => res.json())
       .then((data) => setProductTypes(data));
   };
 
   const addProductType = (productTypeObj) => {
-    return fetch("http://localhost:8088/productTypes", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(productTypeObj),
-    }).then(getProductTypes);
+    return fetch(
+      "https://gqg-kandykorner-api.herokuapp.com/productTypes",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(productTypeObj),
+      }
+    ).then(getProductTypes);
   };
 
   return (

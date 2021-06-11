@@ -8,19 +8,24 @@ export const CustomerProvider = (props) => {
   const [customers, setCustomers] = useState([]);
 
   const getCustomers = () => {
-    return fetch("http://localhost:8088/customers")
+    return fetch(
+      "https://gqg-kandykorner-api.herokuapp.com/customers"
+    )
       .then((res) => res.json())
       .then((data) => setCustomers(data));
   };
 
   const addCustomer = (cusotmerObject) => {
-    return fetch("http://localhost:8088/customers", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(cusotmerObject),
-    }).then(getCustomers);
+    return fetch(
+      "https://gqg-kandykorner-api.herokuapp.com/customers",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(cusotmerObject),
+      }
+    ).then(getCustomers);
   };
 
   /*

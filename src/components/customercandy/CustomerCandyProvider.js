@@ -6,20 +6,23 @@ export const CustomerCandyProvider = (props) => {
 
   const getCustomerCandy = () => {
     return fetch(
-      "http://localhost:8088/customerCandy?_expand=product&_expand=customer"
+      "https://gqg-kandykorner-api.herokuapp.com/customerCandy?_expand=product&_expand=customer"
     )
       .then((res) => res.json())
       .then((data) => setCustomerCandy(data));
   };
 
   const addCustomerCandy = (productObject) => {
-    return fetch("http://localhost:8088/customerCandy", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(productObject),
-    }).then(getCustomerCandy);
+    return fetch(
+      "https://gqg-kandykorner-api.herokuapp.com/customerCandy",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(productObject),
+      }
+    ).then(getCustomerCandy);
   };
 
   return (

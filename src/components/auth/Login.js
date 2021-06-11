@@ -11,7 +11,7 @@ export const Login = (props) => {
 
   const existingUserCheck = () => {
     return fetch(
-      `http://localhost:8088/customers?email=${email.current.value}`
+      `https://gqg-kandykorner-api.herokuapp.com/customers?email=${email.current.value}`
     )
       .then((res) => res.json())
       .then((user) => (user.length ? user[0] : false));

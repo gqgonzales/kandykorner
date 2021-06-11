@@ -6,7 +6,7 @@ export const EmployeeProvider = (props) => {
 
   const getEmployees = () => {
     return fetch(
-      "http://localhost:8088/employees?_expand=location"
+      "https://gqg-kandykorner-api.herokuapp.com/employees?_expand=location"
     )
       .then((res) => res.json())
       .then((data) => setEmployees(data));
@@ -14,7 +14,7 @@ export const EmployeeProvider = (props) => {
 
   const addEmployee = (employeeObject) => {
     return fetch(
-      "http://localhost:8088/employees?_expand=location",
+      "https://gqg-kandykorner-api.herokuapp.com/employees?_expand=location",
       {
         method: "POST",
         headers: {
@@ -27,7 +27,7 @@ export const EmployeeProvider = (props) => {
 
   const releaseEmployee = (employeeId) => {
     return fetch(
-      `http://localhost:8088/employees/${employeeId}`,
+      `https://gqg-kandykorner-api.herokuapp.com/employees/${employeeId}`,
       {
         method: "DELETE",
       }
@@ -36,7 +36,7 @@ export const EmployeeProvider = (props) => {
 
   const updateEmployee = (employee) => {
     return fetch(
-      `http://localhost:8088/employees/${employee.id}`,
+      `https://gqg-kandykorner-api.herokuapp.com/employees/${employee.id}`,
       {
         method: "PUT",
         headers: {
@@ -49,7 +49,7 @@ export const EmployeeProvider = (props) => {
 
   const getEmployeeById = (employeeId) => {
     return fetch(
-      `http://localhost:8088/employees/${employeeId}`,
+      `https://gqg-kandykorner-api.herokuapp.com/employees/${employeeId}`,
       {
         method: "GET",
         headers: {

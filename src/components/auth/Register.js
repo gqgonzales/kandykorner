@@ -13,7 +13,7 @@ export const Register = (props) => {
 
   const existingUserCheck = () => {
     return fetch(
-      `http://localhost:8088/customers?email=${email.current.value}`
+      `https://gqg-kandykorner-api.herokuapp.com/customers?email=${email.current.value}`
     )
       .then((res) => res.json())
       .then((user) => !!user.length);
@@ -24,17 +24,20 @@ export const Register = (props) => {
 
     existingUserCheck().then((userExists) => {
       if (!userExists) {
-        fetch("http://localhost:8088/customers", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: email.current.value,
-            // address: address.current.value,
-            name: `${firstName.current.value} ${lastName.current.value}`,
-          }),
-        })
+        fetch(
+          "https://gqg-kandykorner-api.herokuapp.com/customers",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: email.current.value,
+              // address: address.current.value,
+              name: `${firstName.current.value} ${lastName.current.value}`,
+            }),
+          }
+        )
           .then((res) => res.json())
           .then((createdUser) => {
             if (createdUser.hasOwnProperty("id")) {

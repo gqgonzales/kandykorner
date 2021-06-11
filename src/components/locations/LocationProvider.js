@@ -6,20 +6,23 @@ export const LocationProvider = (props) => {
 
   const getLocations = () => {
     return fetch(
-      "http://localhost:8088/locations?_embed=employees"
+      "https://gqg-kandykorner-api.herokuapp.com/locations?_embed=employees"
     )
       .then((res) => res.json())
       .then((data) => setLocations(data));
   };
 
   const addLocation = (locationObject) => {
-    return fetch("http://localhost:8088/locations", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(locationObject),
-    }).then(getLocations);
+    return fetch(
+      "https://gqg-kandykorner-api.herokuapp.com/locations",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(locationObject),
+      }
+    ).then(getLocations);
   };
 
   return (
