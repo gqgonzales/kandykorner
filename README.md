@@ -6,4 +6,4 @@ This project is my first application bootsrapped with React and deployed with He
 
 In it, feel free to check out different locations, browse through  available candy selections, and build out a cart with your favorite treats.
 
-## To sign in, try using guest@nss.com <3
+#### To sign in, try using guest@nss.com <3
